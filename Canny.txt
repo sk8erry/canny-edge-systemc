@@ -1,0 +1,25 @@
+        Model    Frame Delay    Throughput    Total simulated time
+CannyA8_step1           0 ms       inf FPS                    0 ms
+CannyA8_step2        1820 ms     0.549 FPS                59320 ms
+CannyA8_step3        1820 ms     0.549 FPS                59320 ms
+CannyA8_step4        1820 ms     0.549 FPS                59320 ms
+CannyA8_step5        1030 ms     0.971 FPS                33762 ms
+------------------------------------------------------------------
+CannyA9_step1         297 ms     3.580 FPS                 8379 ms 
+CannyA9_step2         638 ms     1.567 FPS                19144 ms 
+
+magnitude_x_y() avg runtime         0.155745
+derrivative_x_y() avg runtime       0.151451
+blur_x() avg runtime                0.291103
+blur_y() avg runtime                0.473272
+make_gaussian_kernel() avg runtime  0.000023
+apply_hysteresis() avg runtime      0.219218
+non_max_supp() avg runtime          0.279303
+
+
+
+For step 1, I tried different sets of commands and reached a total 
+time of 19144 ms and 3.58 FPS using -O3, -mfloat-abi=hard, 
+-mfpu=neon-fp-armv8, and -mneon-for-64bits. For step 2, 
+adding extra code will slightly slow down the procedure, 
+so no extra modification was added.
